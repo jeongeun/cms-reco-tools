@@ -111,7 +111,11 @@ void compareInDir(TFile* f1, TFile* f2, std::string dirName,unsigned int logmod=
     
     pD->Clear();
     pD->cd();
-    std::cout<<"Save : "<<dirName.c_str()<<"/"<<h1->GetName()<<std::endl;
+    //std::cout<<"Save : "<<dirName.c_str()<<"/"<<h1->GetName()<<std::endl;
+    std::cout <<"Save : "<<dirName.c_str()<<"/"<< h1->GetName() 
+              <<" :"<< h1->GetEntries() <<" :"<< h2->GetEntries() <<" :"<< ksProb <<" :"<< bDiff ;
+    if(h1->GetEntries()>=10 && h2->GetEntries()>=10){std::cout<<" :==>"<<bDiff/(0.5*(h1->GetEntries()+h2->GetEntries()));}
+    std::cout << " " <<std::endl;
 
     if (! isH2){
       h1->SetLineWidth(2);
